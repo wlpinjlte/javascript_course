@@ -1,0 +1,126 @@
+:root{
+  --text-color-initial: red;
+  --text-color-final: blue;
+}
+.aside  {
+    /* Specyfikacja wyglądu */
+    /* float:left; */
+    position: absolute;
+    right:0.5rem;
+    top:4.2rem;
+    width: 45%;
+    padding-left: 1rem;
+}
+
+.footer {
+  /* Specyfikacja wyglądu */
+  padding: 0.3rem;
+  margin-top: 0.4rem;
+} 
+
+.header {
+  /* Specyfikacja wyglądu */
+} 
+
+.main { 
+  width: 45%;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+.nav {
+  /* Specyfikacja wyglądu */
+  width: 8.5rem;
+  /* padding: 2rem; */
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  position: relative;
+  top:-1rem;
+}
+
+.nav ul {
+  /* Specyfikacja wyglądu */
+}
+
+.nav li {
+  font-size: 1.3rem;
+}
+
+.h1{
+  padding-left: 0.5rem;
+  font-size: 2.5rem;
+}
+
+.aside>h1{
+  margin-bottom: 0.1rem;
+  padding-left: 0;
+  position: relative;
+  left:-0.5rem;
+  margin-top: 0;
+}
+.aside>h2{
+  margin-top: 0;
+  position: relative;
+  left:-0.5rem;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.aside li{
+  font-size: 1.3rem;
+}
+
+.main>p{
+  margin-left: 0.5rem;
+}
+
+.main>h1{
+  margin: 0;
+  padding: 0;
+}
+
+.azure{
+  background-color: azure;
+}
+
+.border{
+  border: 1px solid black;
+  box-shadow: -3px -3px 3px rgb(151, 151, 151),3px 3px 3px rgb(151, 151, 151);
+}
+
+.animation{
+  animation-name: colorChange;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+#container{
+  display: flex;
+  justify-content: space-between;
+  width: 10rem;
+}
+
+#container>button{
+  margin-top: 0.3rem;
+}
+
+@media only screen and (max-width: 600px){
+  .nav{
+    width: auto;
+  }
+  .aside{
+    position: static;
+    width: auto;
+  }
+  .main{
+    width: auto;
+    position: static;
+    margin-top: 1rem;
+  }
+}
+
+@keyframes colorChange{
+  0% {color:var(--text-color-initial)}
+  50% {color:var(--text-color-final)}
+  100% {color:var(--text-color-initial)}
+}
