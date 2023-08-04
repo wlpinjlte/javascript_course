@@ -1,0 +1,49 @@
+.ani1:hover{
+    /* transform: translateX(100%); */
+    animation: animation1 1s;
+}
+
+.ani1{
+    z-index: 2;
+}
+
+.ani2:hover{
+    animation: animation2 1s;
+}
+
+.ani2{
+    z-index: 2;
+}
+
+.ani3{
+    z-index: 1;
+}
+
+.ani3:hover{
+    animation: animation3 1s;
+}
+
+textarea{
+    padding: 0.5rem;
+    border:1px solid rgb(187, 187, 187);
+    border-radius: 5px;
+}
+
+textarea:focus{
+    border:1px solid rgb(187, 187, 187);
+}
+#navbarNav{
+    justify-content: space-between;
+}
+@keyframes animation1{
+    100%{transform: translateX(100%);}
+}
+
+@keyframes animation2{
+    100%{transform: translateX(-70%);}
+}
+
+@keyframes animation3 {
+    /* 0%{transform: rotateX(0deg);} */
+    100%{transform: rotateX(360deg);}
+}
