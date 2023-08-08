@@ -47,9 +47,11 @@ divFlex.classList.add("col-12")
 divFlex.classList.add("justify-content-center")
 divFlex.classList.add("d-flex")
 divFlex.classList.add("my-4")
-let divCard=document.createElement("div")
+let divCard=document.createElement("form")
 divCard.classList.add("card")
 divCard.classList.add("col-9")
+divCard.method="POST"
+divCard.action="/"
 let title=document.createElement("h5")
 title.classList.add("card-title")
 title.classList.add("bg-light")
@@ -66,12 +68,14 @@ emailLabel.classList.add("form-label")
 let emailInput=document.createElement("input")
 emailInput.classList.add("form-control")
 emailInput.type="email"
+emailInput.name="email"
 let passwordLabel=document.createElement("label")
 let textNodePassword=document.createTextNode("Password")
 passwordLabel.appendChild(textNodePassword)
 passwordLabel.classList.add("form-label")
 let passwordInput=document.createElement("input")
 passwordInput.type="password"
+passwordInput.name="password"
 passwordInput.classList.add("form-control")
 let formButton=document.createElement("button")
 let textNodeButton=document.createTextNode("Zaloguj")
@@ -80,6 +84,8 @@ formButton.classList.add("btn")
 formButton.classList.add("btn-primary")
 formButton.classList.add("mt-3")
 formButton.type="submit"
+formButton.name="action"
+formButton.value="login"
 divFlex.appendChild(divCard)
 divCard.append(title)
 divCard.appendChild(divCardBody)
