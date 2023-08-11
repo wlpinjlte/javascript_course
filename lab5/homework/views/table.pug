@@ -1,0 +1,19 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        title Second Express application
+    body
+        table
+            tr
+                th Nazwisko
+                th Imie
+                if students[0].department
+                    th Wydzial
+            each student in students
+                tr
+                    td=student.lname 
+                    td=student.fname
+                    if student.department 
+                        td=student.department
