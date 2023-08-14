@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Zmień wartość "lang" z 'en' na 'pl' -->
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+            crossorigin="anonymous"><!-- Icons -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="http://localhost:8000/logoScript.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <title>
+            Tytuł strony / Page tile
+        </title>
+    </head>
+    <body>
+    <!-- Umieść tutaj treść elementu 'body' z zadania 1 -->
+    <!-- Put here the contents of the 'body' element from exercise 1 -->
+        <header class="container-fluid">
+            <div class="row text-center">
+                    <h3 class="col"><i class="bi bi-telephone"></i>Telephone <a href="">+48543544</a></h3>
+                    <h3 class="col"><i class="bi bi-envelope"></i>E-mail <a href="">dsfdsfsd@gmail.com</a></h3>
+            </div>
+        </header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <!-- <a class="navbar-brand" href="#"><i class="bi bi-cash"></i></a> -->
+                <a class="navbar-brand" href="#">
+                    <canvas width="50" height="50"></canvas>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav d-flex justify-content-between col-12">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Główna</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Bank "ABC" S.A</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <main class="d-flex justify-content-center">
+            <form class="col-6 mt-4" action="/admin" method="POST">
+                <label class="form-label" for="accountTypeSelect">Wybierz typ konta</label>
+                <select class="form-control" name="accountType" id="accountTypeSelect">
+                    <option disabled selected>Typ konta</option>
+                    <option value="Private">Prywatne</option>
+                    <option value="Business">Biznesowe</option>
+                    <option value="Economic">Ekonomiczne</option>
+                </select>
+                <label class="form-label mt-2" for="subaccountTypeSelect">Wybierz typ subkonta</label>
+                <select class="form-control" name="subaccountType" id="subaccountTypeSelect">
+                    <option disabled selected>Typ subkonta</option>
+                    <option>USD</option>
+                    <option>EURO</option>
+                    <option>PLN</option>
+                    <option>SEK</option>
+                    <option>HUF</option>
+                </select>
+                <button class="btn-primary btn mt-3" type="submit">Załóż</button>
+            </form>
+        </main>
+    <body>
+</html>
