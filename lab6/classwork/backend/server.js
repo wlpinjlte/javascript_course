@@ -4,6 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import mongodb from 'mongodb'
 import { log } from 'console';
+import bodyParser from 'body-parser'
 import cors from 'cors';
 /* *************************** */
 /* Configuring the application */
@@ -16,6 +17,7 @@ const router=express.Router()
 app.use(morgan('dev'));
 app.use(express.static(__dirname + '/public')); 
 app.use(express.urlencoded({extended:false}))
+app.use(bodyParser.json())
 app.use(cors())
 router.get("/clients",(req,res)=>{
     res.status=200
@@ -39,18 +41,29 @@ router.post('/clients/balanceChange',(req,res)=>{
     res.json({message:message})
 })
 
+router.post('/clients/transfer',(req,res)=>{
+    let message=transfer(req.body)
+    res.status=200
+    res.json({message:message})
+})
+
 router.post('/login',(req,res)=>{
+    // console.log(req)
+    console.log(req.body)
     let message=login(req.body)
     res.status=200
     res.json({message:message})
 })
 
+
 let login=(data)=>{
-    usersData.forEach(user=>{
+    console.log(data.password,data.email)
+    for(const user of usersData){
         if(user.password===data.password&&user.email===data.email){
+            console.log("siema")
             return `Klient ${data.email} zostal zalogowany pomyslnie`
         }
-    })
+    } 
     return `Klient ${data.email} nie zostal zalogowany`
 }
 
@@ -92,6 +105,22 @@ let createAccount=(data)=>{
     }else{
         return `Subkonto juz istniej`
     }
+}
+
+let transfer=(data)=>{
+    if(data.clientFromId===data.clientToId&&data.accountFromType===data.accountToType&&data.subaccountFromType===data.subaccountToType){
+        return 'przelewa na to samo subkonto nie ma sensu'
+    }
+    let fromBalance=usersData[data.clientFromId]['accounts'][data.accountFromType][data.subaccountFromType]
+    if(fromBalance>0){
+        usersData[data.clientFromId]['accounts'][data.accountFromType][data.subaccountFromType]=0
+        usersData[data.clientToId]['accounts'][data.accountToType][data.subaccountToType]+=fromBalance
+
+        collection.updateOne({id:data.clientFromId},{$set:{accounts:usersData[data.clientFromId]['accounts']}})
+        collection.updateOne({id:data.clientToId},{$set:{accounts:usersData[data.clientToId]['accounts']}})
+        return 'transfer przebiegł pomyślnie'
+    }
+    return 'transfer się nie powiódł za mało środków'
 }
 
 app.use('/',router)
